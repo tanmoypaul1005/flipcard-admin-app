@@ -4,5 +4,5 @@ export const api="https://flipkartserver.herokuapp.com/api";
 
 
 export const generatePublicUrl = (fileName) => {
-  return `http://localhost:5000/api${fileName}`;
+  return `https://flipkartserver.herokuapp.com/api${fileName}`;
 };
