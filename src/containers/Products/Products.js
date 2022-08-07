@@ -19,7 +19,7 @@ const Products = () => {
     const category = useSelector((state) => state.category);
     const product = useSelector((state) => state.product);
     const dispatch = useDispatch();
-console.log('productDetails',productDetails)
+    console.log('productDetails',productDetails)
     const handleClose = () => {
         const form = new FormData();
         form.append("name", name);
@@ -36,6 +36,17 @@ console.log('productDetails',productDetails)
         dispatch(addProduct(form));
         setShow(false);
     };
+    
+    //reload start
+    function reload() {
+        if (!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+
+    reload();
+
 
     const handleShow = () => setShow(true);
 
@@ -197,7 +208,7 @@ console.log('productDetails',productDetails)
           </Col>
           <Col md="6">
             <label className="key">Category</label>
-            <p className="value">{productDetails.category.name}</p>
+            {/* <p className="value">{productDetails.category.name}</p> */}
           </Col>
         </Row>
         <Row>
