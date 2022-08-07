@@ -53,6 +53,8 @@ console.log('productDetails',productDetails)
 
     const renderProducts = () => {
         return (
+            <div>
+            { product.products.length > 0 ?(
             <Table style={{ fontSize: 12 }} responsive="sm">
                 <thead>
                     <tr>
@@ -61,13 +63,11 @@ console.log('productDetails',productDetails)
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Desperation</th>
-                        <th>Category</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    {product.products.length > 0
-                        ? product.products.map((product) => (
+                    { product.products.map((product) => (
                             <tr onClick={()=>showProductDetailsModal(product)} key={product._id}>
                                 <td>2</td>
                                 <td>{product.name}</td>
@@ -75,26 +75,12 @@ console.log('productDetails',productDetails)
                                 <td>{product.quantity}</td>
                                 <td>{product.description}</td>
                                 {/* <td>{product.category.name}</td> */}
-                                {/* <td>
-                    <button onClick={() => showProductDetailsModal(product)}>
-                      info
-                    </button>
-                    <button
-                      onClick={() => {
-                        const payload = {
-                          productId: product._id,
-                        };
-                        dispatch(deleteProductById(payload));
-                      }}
-                    >
-                      del
-                    </button>
-                  </td> */}
                             </tr>
                         ))
-                        : null}
+                    }
                 </tbody>
-            </Table>
+            </Table> ): null}
+            </div>
         )
     }
 
@@ -263,6 +249,7 @@ console.log('productDetails',productDetails)
             </Layout>
 
         </div>
+       
     );
 };
 
